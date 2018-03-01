@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable'
-import {JsonApiService} from "../../core/api/json-api.service";
+import {JsonApiService} from "../../../src/core/api/json-api.service";
 
 
 @Injectable()

@@ -2,7 +2,7 @@ import {Injectable, ApplicationRef} from '@angular/core';
 
 import {config} from '../smartadmin.config';
 import {languages} from './languages.model';
-import {JsonApiService} from "../../../../.dev/core/api/json-api.service";
+import {JsonApiService} from "../../../core/api/json-api.service";
 import { Subject } from 'rxjs/Subject';
 
 

@@ -1,6 +1,6 @@
 
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
-import { JsonApiService } from "../../../core/api/json-api.service";
+import { JsonApiService } from "../../../../src/core/api/json-api.service";
 import { DatatableComponent } from "@swimlane/ngx-datatable/release";
 @Component({
   selector: 'paged-table-demo',

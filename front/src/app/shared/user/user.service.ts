@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 
-import {JsonApiService} from "../../../../.dev/core/api/json-api.service";
+import {JsonApiService} from "../../../core/api/json-api.service";
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 

@@ -17,7 +17,6 @@ import {HeaderComponent} from "./header.component";
 import {UtilsModule} from "../../utils/utils.module";
 import {I18nModule} from "../../i18n/i18n.module";
 import {UserModule} from "../../user/user.module";
-import {VoiceControlModule} from "../../voice-control/voice-control.module";
 import {BsDropdownModule} from "ngx-bootstrap";
 
 
@@ -26,8 +25,6 @@ import {BsDropdownModule} from "ngx-bootstrap";
     CommonModule,
 
     FormsModule,
-
-    VoiceControlModule,
 
     BsDropdownModule,
 

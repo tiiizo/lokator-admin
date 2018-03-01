@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import * as examples from "./flot-examples"
-import {JsonApiService} from "../../core/api/json-api.service";
+import {JsonApiService} from "../../../src/core/api/json-api.service";
 import {FakeDataSource} from "./flot-examples";
 import {FadeInTop} from "../../../src/app/shared/animations/fade-in-top.decorator";
 

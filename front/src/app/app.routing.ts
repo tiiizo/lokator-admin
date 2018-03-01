@@ -36,7 +36,7 @@ export const routes: Routes = [
     ]
   },
 
-  // { path: 'auth', component: AuthLayoutComponent, loadChildren: 'app/+auth/auth.module#AuthModule'},
+  { path: 'auth', component: AuthLayoutComponent, loadChildren: 'app/+auth/auth.module#AuthModule'},
 
   {path: '**', redirectTo: 'home'}
 //

@@ -1,7 +1,7 @@
 
 
 import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
-import { JsonApiService } from "../../../core/api/json-api.service";
+import { JsonApiService } from "../../../../src/core/api/json-api.service";
 
 @Component({
   selector: 'row-detail-demo',
