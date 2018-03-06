@@ -22,7 +22,7 @@
     "preclean:start": "npm run clean",
     "protractor": "protractor",
     "rimraf": "rimraf",
-    "server:dev": "./node_modules/.bin/ng serve",
+    "server:dev": "./node_modules/.bin/ng serve --proxy-config proxy.conf.json",
     "serve": "npm run server:dev",
     "start": "npm run server:dev",
     "test": "./node_modules/.bin/ng test",
