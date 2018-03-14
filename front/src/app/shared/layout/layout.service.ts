@@ -9,10 +9,7 @@ declare var $: any;
 
 const store = {
   smartSkin: localStorage.getItem('sm-skin') || config.smartSkin,
-  skin: config.skins.find((_skin) => {
-    return _skin.name == (localStorage.getItem('sm-skin') || config.smartSkin)
-  }),
-  skins: config.skins,
+  skin: config.smartSkin,
   fixedHeader: localStorage.getItem('sm-fixed-header') == 'true',
   fixedNavigation: localStorage.getItem('sm-fixed-navigation') == 'true',
   fixedRibbon: localStorage.getItem('sm-fixed-ribbon') == 'true',
@@ -199,7 +196,6 @@ export class LayoutService {
 
   processBody(state) {
     let $body = $('body');
-    $body.removeClass(state.skins.map((it) => (it.name)).join(' '));
     $body.addClass(state.skin.name);
     $('#logo img').attr('src', state.skin.logo);
 

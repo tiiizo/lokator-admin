@@ -89,7 +89,7 @@ export class D3MapComponent implements AfterViewInit {
 
     this.setup(this.width, this.height);
 
-    d3.json(config.API_URL + '/graphs/d3/world-topo-min.json', (err, world) => {
+    d3.json(config.apiUrl + '/graphs/d3/world-topo-min.json', (err, world) => {
       world.objects.countries.geometries = world.objects.countries.geometries.map((it) => {
         it.properties.value = this.data[it.properties.name];
         return it;

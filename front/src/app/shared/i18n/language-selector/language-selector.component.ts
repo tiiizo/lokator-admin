@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {languages} from '../languages.model'
-import {I18nService} from "../i18n.service";
+
+import { I18nService } from '../i18n.service';
+import { Language } from '../language.model';
+import { AvailableLanguages } from '../available-languages.model';
 
 @Component({
-  selector: 'sa-language-selector',
+  selector: 'app-language-selector',
   templateUrl: './language-selector.component.html',
 })
 export class LanguageSelectorComponent implements OnInit {
 
-  public languages: Array<any>;
-  public currentLanguage: any;
+  public languages: Array<Language>;
+  public currentLanguage: Language;
 
   constructor(private i18n: I18nService) {
   }
 
   ngOnInit() {
-    this.languages = languages;
+    this.languages = AvailableLanguages;
     this.currentLanguage = this.i18n.currentLanguage;
   }
 
-  setLanguage(language){
+  setLanguage(language: Language) {
     this.currentLanguage = language;
     this.i18n.setLanguage(language)
   }
-
 }

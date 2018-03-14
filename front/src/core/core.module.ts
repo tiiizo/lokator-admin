@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { JsonApiService } from './api/json-api.service'
 import { LayoutService } from '../app/shared/layout/layout.service'
 import { UserService } from '../app/shared/user/user.service'
-import {SoundService} from '../app/shared/sound/sound.service';
 
 import { throwIfAlreadyLoaded } from './guards/module-import-guard';
 import {TabsModule, ProgressbarModule, TooltipModule, BsDropdownModule, AlertModule} from 'ngx-bootstrap';
@@ -28,7 +27,6 @@ import {AuthService} from '../app/+auth/auth.service';
     JsonApiService,
     LayoutService,
     UserService,
-    SoundService,
     AuthService
   ]
 })
