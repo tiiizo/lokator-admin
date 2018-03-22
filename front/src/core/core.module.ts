@@ -10,6 +10,7 @@ import {SoundService} from '../app/shared/sound/sound.service';
 import { throwIfAlreadyLoaded } from './guards/module-import-guard';
 import {TabsModule, ProgressbarModule, TooltipModule, BsDropdownModule, AlertModule} from 'ngx-bootstrap';
 import {AuthService} from '../app/+auth/auth.service';
+import {AuthGuard} from '../app/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import {AuthService} from '../app/+auth/auth.service';
     LayoutService,
     UserService,
     SoundService,
+    AuthGuard,
     AuthService
   ]
 })

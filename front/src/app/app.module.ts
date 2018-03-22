@@ -1,6 +1,10 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
 
 import { FormsModule } from '@angular/forms';
 
@@ -14,8 +18,8 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
 // Core providers
-import {CoreModule} from "../core/core.module";
-import {SmartadminLayoutModule} from "./shared/layout/layout.module";
+import {CoreModule} from '../core/core.module';
+import {SmartadminLayoutModule} from './shared/layout/layout.module';
 
 
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -35,6 +39,7 @@ type StoreType = {
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
+
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
@@ -50,6 +55,9 @@ type StoreType = {
 
     CoreModule,
     SmartadminLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
 
     routing
   ],

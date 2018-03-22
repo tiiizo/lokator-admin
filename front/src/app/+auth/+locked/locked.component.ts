@@ -15,11 +15,8 @@ export class LockedComponent implements OnInit {
   ngOnInit() {
   }
 
-  unlock(event){
+  unlock(event) {
     event.preventDefault();
     this.router.navigate(['/dashboard/+analytics'])
   }
-
-
-
 }

@@ -1,25 +1,22 @@
-/**
- * Created by griga on 7/11/16.
- */
-
-
-import {Routes, RouterModule} from '@angular/router';
-import {MainLayoutComponent} from "./shared/layout/app-layouts/main-layout.component";
-import {AuthLayoutComponent} from "./shared/layout/app-layouts/auth-layout.component";
-import {ModuleWithProviders} from "@angular/core";
+import {Routes, RouterModule} from '@angular/router'
+import {MainLayoutComponent} from './shared/layout/app-layouts/main-layout.component'
+import {AuthLayoutComponent} from './shared/layout/app-layouts/auth-layout.component'
+import {ModuleWithProviders} from '@angular/core'
+import {AuthGuard} from './auth-guard.service'
 
 export const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
     data: {pageTitle: 'Home'},
+    canActivate: [AuthGuard],
     children: [
       {
         path: '', redirectTo: 'home', pathMatch: 'full',
 
 
       },
-      {path: 'home', loadChildren: 'app/+home/home.module#HomeModule',data:{pageTitle: 'Home'}},
+      {path: 'home', loadChildren: 'app/+home/home.module#HomeModule', data : {pageTitle: 'Home'}}
       // {path: 'dashboard', loadChildren: 'app/+dashboard/dashboard.module#DashboardModule',data:{pageTitle: 'Dashboard'}},
       // {path: 'smartadmin', loadChildren: 'app/+smartadmin-intel/smartadmin-intel.module#SmartadminIntelModule',data:{pageTitle: 'Smartadmin'}},
       // {path: 'app-views', loadChildren: 'app/+app-views/app-views.module#AppViewsModule',data:{pageTitle: 'App Views'}},
