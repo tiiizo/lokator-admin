@@ -1,4 +1,5 @@
 import {Component, ViewContainerRef} from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import {Component, ViewContainerRef} from '@angular/core';
 })
 export class AppComponent {
 
-  public constructor(private viewContainerRef: ViewContainerRef) {}
+  public constructor(private viewContainerRef: ViewContainerRef, db: AngularFirestore) {}
+
 }

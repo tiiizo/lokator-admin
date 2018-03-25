@@ -1,6 +1,10 @@
 import { NgModule, ApplicationRef, APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
 
 import { FormsModule } from '@angular/forms';
 
@@ -38,9 +42,20 @@ const l10nConfig: L10nConfig = {
   }
 };
 
+<<<<<<< HEAD
 export function initL10n(l10nLoader: L10nLoader): Function {
   return () => l10nLoader.load();
 }
+=======
+/**
+ * `AppModule` is the main entry point into Angular2's bootstraping process
+ */
+
+@NgModule({
+  bootstrap: [ AppComponent ],
+  declarations: [
+    AppComponent,
+>>>>>>> 6ea61cea6e12a743f6a98998b96763cca02db142
 
 @NgModule({
   imports: [
@@ -50,7 +65,15 @@ export function initL10n(l10nLoader: L10nLoader): Function {
     FormsModule,
     ModalModule.forRoot(),
     CoreModule,
+<<<<<<< HEAD
     LayoutModule,
+=======
+    SmartadminLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+
+>>>>>>> 6ea61cea6e12a743f6a98998b96763cca02db142
     routing
   ],
   declarations: [

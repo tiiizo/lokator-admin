@@ -7,8 +7,9 @@ import { LayoutService } from '../app/shared/layout/layout.service'
 import { UserService } from '../app/shared/user/user.service'
 
 import { throwIfAlreadyLoaded } from './guards/module-import-guard';
-import {TabsModule, ProgressbarModule, TooltipModule, BsDropdownModule, AlertModule} from 'ngx-bootstrap';
-import {AuthService} from '../app/+auth/auth.service';
+import { TabsModule, ProgressbarModule, TooltipModule, BsDropdownModule, AlertModule } from 'ngx-bootstrap';
+import { AuthService } from '../app/+auth/auth.service';
+import { AuthGuard } from '../app/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -27,11 +28,12 @@ import {AuthService} from '../app/+auth/auth.service';
     JsonApiService,
     LayoutService,
     UserService,
+    AuthGuard,
     AuthService
   ]
 })
 export class CoreModule {
-  constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');
   }
- }
+}

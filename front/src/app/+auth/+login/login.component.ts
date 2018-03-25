@@ -23,4 +23,13 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/home'])
   }
 
+  loginGoogle() {
+    this.authService.googleLogin();
+    this.authService.isLoggedIn = true;
+  }
+
+  loginFB() {
+    this.authService.fbLogin();
+    this.authService.isLoggedIn = true
+  }
 }
