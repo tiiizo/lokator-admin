@@ -1,4 +1,4 @@
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule, ApplicationRef, APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -11,58 +11,63 @@ import { routing } from './app.routing'
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
 
 // Core providers
-import {CoreModule} from "../core/core.module";
-import {SmartadminLayoutModule} from "./shared/layout/layout.module";
-
+import { CoreModule } from '../core/core.module';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 
-// Application wide providers
-const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
-  AppState
-];
+import { L10nLoader, LocalizationModule, L10nConfig, StorageStrategy, ProviderType } from 'angular-l10n';
+import { LayoutModule } from './shared/layout/layout.module';
 
-type StoreType = {
-  state: InternalStateType,
-  restoreInputValues: () => void,
-  disposeOldHosts: () => void
+const l10nConfig: L10nConfig = {
+  locale: {
+    languages: [
+      { code: 'pl', dir: 'ltr' },
+      { code: 'en', dir: 'ltr' }
+    ],
+    language: 'pl',
+    storage: StorageStrategy.Local
+  },
+  translation: {
+    providers: [
+      { type: ProviderType.Static, prefix: './assets/langs/locate-' }
+    ],
+    caching: true,
+    missingValue: 'No key'
+  }
 };
 
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
-@NgModule({
-  bootstrap: [ AppComponent ],
-  declarations: [
-    AppComponent,
+export function initL10n(l10nLoader: L10nLoader): Function {
+  return () => l10nLoader.load();
+}
 
-  ],
-  imports: [ // import Angular's modules
+@NgModule({
+  imports: [
+    LocalizationModule.forRoot(l10nConfig),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-
     ModalModule.forRoot(),
-
     CoreModule,
-    SmartadminLayoutModule,
-
+    LayoutModule,
     routing
   ],
-  exports: [
+  declarations: [
+    AppComponent
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
-    // ENV_PROVIDERS,
-    APP_PROVIDERS
-  ]
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initL10n,
+      deps: [L10nLoader],
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(public appRef: ApplicationRef, public appState: AppState) {}
-
-
+  constructor(public appRef: ApplicationRef) {
+  }
 }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { config } from '../../app/shared/smartadmin.config';
+import { config } from '../../app/shared/locator-admin.config';
 import { Observable } from 'rxjs/Observable';
 
 

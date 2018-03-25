@@ -1,0 +1,16 @@
+<ul class="header-dropdown-list hidden-xs">
+  <li class="">
+    <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+      <img src="assets/img/flags/{{currentLanguage}}.png" class="flag">
+      <i class="fa fa-angle-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+      <li [class.active]="language.code==currentLanguage" *ngFor="let language of languages">
+        <a  class="dropdown-item">
+          <img src="assets/img/flags/{{language.code}}.png" class="flag">
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p translate>{{'Sign in'}}</p>
